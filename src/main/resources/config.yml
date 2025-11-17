@@ -1,0 +1,58 @@
+# eTab - Tablist plugin configuration
+# This file uses MiniMessage formatting for header/footer and formats.
+# Gradients can be referenced by name via <gradient:name>text</gradient> — defined under 'gradients'.
+# If PlaceholderAPI is installed, placeholders like <player> and custom PAPI placeholders will be expanded.
+
+# Global header/footer (MiniMessage)
+header: "<gradient:sunset>Welcome, <player>!</gradient>"
+footer: "<gray>Have fun on the server | <gold>play.example.com</gold>"
+
+# How often (in server ticks) the tablist will refresh for all players.
+# 20 ticks = 1 second. Default: 100 ticks = 5s
+refresh-interval-ticks: 100
+
+# Enable PlaceholderAPI integration if PlaceholderAPI is present
+enable-papi: true
+
+# Persist per-player toggles under 'toggles.<uuid>' in this config
+persist-toggles: true
+
+# Formats: multiple named formats. Each format may specify a permission and a priority.
+# The format with the highest priority that the player matches will be applied.
+formats:
+  default:
+    permission: ""      # empty = no permission requirement (applies to everyone)
+    priority: 0
+    header: "<gradient:default>Welcome, <player></gradient>"
+    footer: "<yellow>Players: <player_count></yellow>"
+
+  staff:
+    permission: "etab.staff"   # permission node required to use this format
+    priority: 10
+    header: "<gradient:staff>Staff Online</gradient>"
+    footer: "<red>Moderation Tools Enabled</red>"
+
+# Gradient definitions referenced by name in <gradient:name>...
+# You can define either 'from' and 'to' as hex colors, or 'stops' as a list of hex colors.
+gradients:
+  sunset:
+    from: "#FF7F50"
+    to: "#FFD700"
+  default:
+    from: "#ffffff"
+    to: "#aaaaaa"
+  staff:
+    stops: ["#ff0000", "#ff7f00", "#ffff00"]
+
+# Messages used by commands (color codes with & are supported)
+messages:
+  reload: "&aConfiguration reloaded."
+  no-permission: "&cYou do not have permission to use this command."
+  toggled-on: "&aTablist updates enabled."
+  toggled-off: "&cTablist updates disabled."
+
+# Optional section where per-player toggles are stored when persist-toggles is true.
+# Example:
+# toggles:
+#   'uuid-1': true
+#   'uuid-2': false

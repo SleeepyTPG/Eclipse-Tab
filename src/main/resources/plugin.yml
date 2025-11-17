@@ -1,0 +1,27 @@
+name: eTab
+version: '1.0.0'
+main: eclipsetab.eclipseTab.EclipseTab
+api-version: '1.21'
+authors: [Sleeepy]
+description: A fully configurable Tab plugin with Gradient, PlaceholderAPI and LuckPerms support.
+softdepend: [LuckPerms, PlaceholderAPI]
+
+commands:
+  etab:
+    description: Main command for eTab
+    usage: /<command> <reload|info|toggle>
+    aliases: [et]
+
+permissions:
+  etab.reload:
+    description: Reload the eTab configuration
+    default: op
+  etab.info:
+    description: View plugin information
+    default: true
+  etab.toggle:
+    description: Toggle personal tab updates
+    default: true
+  etab.*:
+    description: All eTab permissions
+    default: op
